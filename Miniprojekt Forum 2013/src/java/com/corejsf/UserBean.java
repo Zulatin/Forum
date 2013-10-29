@@ -25,19 +25,25 @@ public class UserBean implements Serializable{
     private User validUser;
     @Inject
     private Service service;
+    
     private User user = new User();
     private User selected;
-    
     
     public boolean isSelected(){
         return selected != null;
     }
     
-//    public String newUser(){
-//        selected = null;
-//        user = new User();
-//        return "userDetail";
-//    }
+    public String newUser(){
+        selected = null;
+        user = new User();
+        return "userDetail";
+    }
+    
+    public String selectUser(User selected){
+        this.selected = selected;
+        user = selected.copy();
+        return "userDetail";
+    }
     
     public String createUser(){
         service.addUser(user);
@@ -63,19 +69,20 @@ public class UserBean implements Serializable{
         return "userList";
     }
     
-    public String registrer(){
-        validUser = service.getValidUser(user);
-        if(validUser != null){
-            user.update(validUser);
-            return "Login succesful";
-        } else {
-            user = new User();
-            return "Error on login";
-        }
-    }
-    
-    
-    
+    	public User getUser() {
+		return user;
+	}
+        
+	public String login() {
+		validUser = service.getValidUser(user);
+		if (validUser != null) {
+			user.update(validUser);
+			return "welcome";
+		} else {
+			user = new User();
+			return "error";
+		}
+	}
     
     
 }

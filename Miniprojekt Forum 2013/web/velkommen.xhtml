@@ -14,9 +14,11 @@
         <h2>Oktober 2013, Erhvervsakademi Aarhus</h2>
         <br></br><br></br><br></br>
         <h:panelGrid>
-            <td><h:link>Fagligt</h:link></td>
-            <td><h:graphicImage value="#{resource['Images:book.jpg']}"/></td>
-            
+            <td><h:link value="#{CategoryBean.Category.get()}">Fagligt</h:link></td>
+            <td><h:graphicImage library="Images" name="book.jpg"/></td><!-Not working->
+            <td><h:link value="#{CategoryBean.Category.get()}">Fritid</h:link></td>
+            <td><h:link value="#{CategoryBean.Category.get()}">Computer</h:link></td>
+            <td><h:link value="#{CategoryBean.Category.get()}">Opskrifter</h:link></td>
         </h:panelGrid>
         <h:form>
         <br></br><br></br><br></br><br></br><br></br><br></br>

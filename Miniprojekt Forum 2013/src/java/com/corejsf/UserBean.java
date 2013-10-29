@@ -69,18 +69,18 @@ public class UserBean implements Serializable{
         return "userList";
     }
     
-    	public User getUser() {
-		return user;
-	}
+    public User getUser() {
+	return user;
+    }
         
-	public String login() {
-		validUser = service.getValidUser(user);
-		if (validUser != null) {
-			user.update(validUser);
-			return "welcome";
-		} else {
-			user = new User();
-			return "error";
+    public String login() {
+	validUser = service.getValidUser(user);
+	if (validUser != null) {
+		user.update(validUser);
+		return "welcome";
+	} else {
+		user = new User();
+		return "error";
 		}
 	}
     

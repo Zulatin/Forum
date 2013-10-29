@@ -9,7 +9,7 @@ package com.corejsf;
 public class User {
     private int age;
     private String username;
-    private int passeword;
+    private int password;
     private String name;
     private boolean admin=false;
     
@@ -17,7 +17,7 @@ public class User {
         this.name=name;
         this.age=age;
         this.username=username;
-        this.passeword=password;
+        this.password=password;
     }
 
     public String getName() {
@@ -44,12 +44,12 @@ public class User {
         this.username = username;
     }
 
-    public int getPasseword() {
-        return passeword;
+    public int getPassword() {
+        return password;
     }
 
-    public void setPasseword(int passeword) {
-        this.passeword = passeword;
+    public void setPassword(int password) {
+        this.password = password;
     }
      public boolean isAdmin() {
         return admin;

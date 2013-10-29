@@ -12,15 +12,15 @@
         <table>
             <tr>
                 <td>Name:</td>
-		<td><h:inputText value="#{userBean.user.name}" /></td>
+		<td><h:inputText value="#{UserBean.user.name}" /></td>
             </tr>
             <tr>
                 <td>Password:</td>
-		<td><h:inputSecret value="#{userBean.user.password}" /></td>
+		<td><h:inputSecret value="#{UserBean.user.password}" /></td>
             </tr>
         </table>
-        <h:commandButton value="Login" action="#{userBean.login}" />
-        <h:commandButton value="Register" action="#{userBean.create}" />
+        <h:commandButton value="Login" action="#{UserBean.login}" />
+        <h:commandButton value="Register" action="#{UserBean.create}" />
     </h:form>
     
     

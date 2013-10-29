@@ -6,7 +6,19 @@
         <title>Forum</title>
     </h:head>
     <h:body>
-        Velkommen til Forum
+        <h6>
+           #{UserBean.User.name}<br></br>
+           #{UserBean.User.username}
+        </h6>
+        <h1>Velkommen til Forum</h1>
+        <h2>Oktober 2013, Erhvervsakademi Aarhus</h2>
+        <br></br><br></br><br></br>
+        <h:panelGrid>
+            <td><h:link binding="#{CategoryBean.category.get()}">Fagligt</h:link></td>
+            <td><h:link binding="#{CategoryBean.category.get()}">Fritid</h:link></td>
+            <td><h:link binding="#{CategoryBean.category.get()}">Computer</h:link></td>
+            <td><h:link binding="#{CategoryBean.category.get()}">Opskrifter</h:link></td>
+        </h:panelGrid>
+        
     </h:body>
 </html>
-

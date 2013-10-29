@@ -59,17 +59,25 @@ public class User {
         this.admin = admin;
     }
     
-    //Methods used in Userbean to registrer and updating User
-    //Possibly missing a couple of update methods
      public User() {
-        this("", 0, "", 0);
+        this("",0, "", 0);
     }
     
-       public void update(User user) {
+    public void update(User user) {
 		name = user.name;
 		password = user.password;
     }
-   
+    
+     public User copy(){
+        User user = new User();
+        user.name = name;
+        user.age = age;
+        user.password = password;
+        user.admin = admin;
+        user.username = username;
+        return user;  
+    }
+    
     
 }
 

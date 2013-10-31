@@ -41,13 +41,13 @@ public class Service {
             dao.addCategory(c);
             
             Category c1=new Category(u2,"Fritid");
-            dao.addCategory(c);
+            dao.addCategory(c1);
             
             Category c2=new Category(u3,"Computer");
-            dao.addCategory(c);
+            dao.addCategory(c2);
             
             Category c3=new Category(u4,"Opsrifter");
-            dao.addCategory(c);
+            dao.addCategory(c3);
             
             
 	}

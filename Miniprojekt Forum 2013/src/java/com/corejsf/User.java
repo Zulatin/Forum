@@ -66,6 +66,9 @@ public class User {
     public void update(User user) {
 		name = user.getName();
 		password = user.getPassword();
+                username = user.getUsername();
+                age = user.getAge();
+                admin = user.isAdmin();
     }
     
      public User copy(){

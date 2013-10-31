@@ -21,13 +21,17 @@ import javax.inject.Named;
 @ApplicationScoped
 public class Dao {
 
-  private static List<Comment> comments;
-  private static List<Post> posts;
-  private static List<Category> categories;
-  private static List<User> users;
+  private  List<Comment> comments;
+  private  List<Post> posts;
+  private  List<Category> categories;
+  private  List<User> users;
   private static Dao uniqueInstance;
   
-  private Dao(){
+  public Dao(){
+      comments=new ArrayList<Comment>();
+      posts=new ArrayList<Post>();
+      categories=new ArrayList<Category>();
+      users=new ArrayList<User>();
   }
   
     public static Dao getInstance(){

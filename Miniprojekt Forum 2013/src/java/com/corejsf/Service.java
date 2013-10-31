@@ -2,7 +2,6 @@
 package com.corejsf;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,6 +16,7 @@ public class Service {
    
 
 	public Service() {
+        this.dao = Dao.getInstance();
             
             User u = new User("Lizette", 25, "Liz", 111);
             u.setAdmin(true);

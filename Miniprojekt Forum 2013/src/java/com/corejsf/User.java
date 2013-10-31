@@ -9,11 +9,15 @@ package com.corejsf;
 public class User {
     private int age;
     private String username;
-    private int password;
+    private String password;
     private String name;
     private boolean admin=false;
     
-     public User(String name, int age, String username, int password){
+     public User() {
+        this("",0,"","");
+    }
+    
+     public User(String name, int age, String username, String password){
         this.name=name;
         this.age=age;
         this.username=username;
@@ -44,11 +48,11 @@ public class User {
         this.username = username;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
      public boolean isAdmin() {
@@ -59,16 +63,14 @@ public class User {
         this.admin = admin;
     }
     
-     public User() {
-        this("",0, "", 0);
-    }
+   
     
     public void update(User user) {
-		name = user.getName();
-		password = user.getPassword();
-                username = user.getUsername();
-                age = user.getAge();
-                admin = user.isAdmin();
+		name = user.name;
+		password = user.password;
+                username = user.username;
+                age = user.age;
+                admin = user.admin;
     }
     
      public User copy(){

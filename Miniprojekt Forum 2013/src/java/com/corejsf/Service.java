@@ -4,37 +4,37 @@ package com.corejsf;
 
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+
 import javax.inject.Named;
 
 @Named(value="service")
 @ApplicationScoped
 public class Service {
     
-    @Inject
+    
     private Dao dao;
    
 
 	public Service() {
-        this.dao = Dao.getInstance();
+        dao = Dao.getInstance();
             
-            User u = new User("Lizette", 25, "Liz", 111);
+            User u = new User("Lizette", 25, "Liz", "111");
             u.setAdmin(true);
             dao.addUser(u);
             
-            User u2 = new User("Tobias", 22, "Toby", 222);
+            User u2 = new User("Tobias", 22, "Toby", "222");
             u2.setAdmin(true);
             dao.addUser(u2);
             
-            User u3 = new User("Casper", 21, "Casp", 333);
+            User u3 = new User("Casper", 21, "Casp", "333");
             u3.setAdmin(true);
             dao.addUser(u3);
             
-            User u4 = new User("Henrik", 34, "Zulatin", 444);
+            User u4 = new User("Henrik", 34, "Zulatin", "444");
             u4.setAdmin(true);
             dao.addUser(u4);
             
-            User u5 = new User("Dummy", 99, "Dummy", 555);
+            User u5 = new User("Dummy", 99, "Dummy", "555");
             dao.addUser(u5);
             
             Category c=new Category(u,"Fagligt");
@@ -64,14 +64,14 @@ public class Service {
             return dao.getAllUsers();
         }
 	public User getValidUser(User user) {
-            List<User> users=this.getUsers();
-		for (User u : users) {
+            User result=null;
+		for (User u : getUsers()) {
 			if (u.getName().equals(user.getName())
-					&& u.getPassword()==(user.getPassword())) {
-				return u;
+					&& u.getPassword().equals(user.getPassword())) {
+			result=u;
 			}
 		}
-		return null;
+		return result;
 	}
         
         public List<Comment>getComments(){

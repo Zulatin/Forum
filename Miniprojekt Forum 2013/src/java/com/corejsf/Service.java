@@ -57,5 +57,17 @@ public class Service {
 		}
 		return null;
 	}
+        
+        public List<Comment>getComments(){
+          return dao.getAllComments();
+        }
+        
+        public List<Post>getPosts(){
+            return dao.getAllPosts();
+        }
+        
+        public List<Category>getCategories(){
+            return dao.getAllCategories();
+        }
 
 }

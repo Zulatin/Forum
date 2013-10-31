@@ -46,7 +46,7 @@ public class Service {
             Category c2=new Category(u3,"Computer");
             dao.addCategory(c2);
             
-            Category c3=new Category(u4,"Opsrifter");
+            Category c3=new Category(u4,"Opskrifter");
             dao.addCategory(c3);
             
             

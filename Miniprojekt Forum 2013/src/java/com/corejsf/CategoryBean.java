@@ -19,9 +19,7 @@ import javax.inject.Inject;
 @RequestScoped
 public class CategoryBean implements Serializable {
     
-    private Category cat;
     @Inject
-    private Service service;
 
     /**
      * Creates a new instance of CategoryBean

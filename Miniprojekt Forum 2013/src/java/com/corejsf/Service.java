@@ -17,6 +17,7 @@ public class Service {
    
 
 	public Service() {
+            
             User u = new User("Lizette", 25, "Liz", 111);
             u.setAdmin(true);
             dao.addUser(u);
@@ -35,6 +36,20 @@ public class Service {
             
             User u5 = new User("Dummy", 99, "Dummy", 555);
             dao.addUser(u5);
+            
+            Category c=new Category(u,"Fagligt");
+            dao.addCategory(c);
+            
+            Category c1=new Category(u2,"Fritid");
+            dao.addCategory(c);
+            
+            Category c2=new Category(u3,"Computer");
+            dao.addCategory(c);
+            
+            Category c3=new Category(u4,"Opsrifter");
+            dao.addCategory(c);
+            
+            
 	}
         
         public void addUser(User user){

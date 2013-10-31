@@ -13,12 +13,11 @@
         <h1>Velkommen til Forum</h1>
         <h2>Oktober 2013, Erhvervsakademi Aarhus</h2>
         <br></br><br></br><br></br>
-        <h:panelGrid>
-            <td><h:link value="#{CategoryBean.Category.get()}">Fagligt</h:link></td>
-            <td><h:link value="#{CategoryBean.Category.get()}">Fritid</h:link></td>
-            <td><h:link value="#{CategoryBean.Category.get()}">Computer</h:link></td>
-            <td><h:link value="#{CategoryBean.Category.get()}">Opskrifter</h:link></td>
-        </h:panelGrid>
+        <h:dataTable value="#{service.categories}" var="cat">
+            <h:column>
+                <h:link value="#{cat.title}"></h:link>
+            </h:column>
+        </h:dataTable>
         <h:form>
         <br></br><br></br><br></br><br></br><br></br><br></br>
         <h:commandButton value="log out" action="index">

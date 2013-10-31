@@ -21,19 +21,15 @@ import javax.inject.Named;
 @ApplicationScoped
 public class Dao {
 
-  private List<Comment> comments;
-  private List<Post> posts;
-  private List<Category> categories;
-  private List<User> users;
+  private static List<Comment> comments;
+  private static List<Post> posts;
+  private static List<Category> categories;
+  private static List<User> users;
   private static Dao uniqueInstance;
   
-    public Dao() {
-        comments=new ArrayList<Comment>();
-        posts=new ArrayList<Post>();
-        categories=new ArrayList<Category>();
-        users=new ArrayList<User>();
-    }
-    
+  private Dao(){
+  }
+  
     public static Dao getInstance(){
         if (uniqueInstance == null){
             uniqueInstance = new Dao();
@@ -50,7 +46,7 @@ public class Dao {
     }
     
     public List<Category> getAllCategories(){
-        return new ArrayList<Category>(categories);
+        return new ArrayList<Category> (categories);
     }
     
     public List<User> getAllUsers(){

@@ -6,8 +6,10 @@
 
 package com.corejsf;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
 
 /**
  *
@@ -15,7 +17,11 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class CategoryBean {
+public class CategoryBean implements Serializable {
+    
+    private Category cat;
+    @Inject
+    private Service service;
 
     /**
      * Creates a new instance of CategoryBean

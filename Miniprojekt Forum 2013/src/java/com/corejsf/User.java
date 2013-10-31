@@ -64,8 +64,8 @@ public class User {
     }
     
     public void update(User user) {
-		name = user.name;
-		password = user.password;
+		name = user.getName();
+		password = user.getPassword();
     }
     
      public User copy(){

@@ -78,7 +78,8 @@ public class UserBean implements Serializable{
 	if (validUser != null) {
 		user.update(validUser);
 		return "welcome";
-	} else {
+	}
+        else {
 		user = new User();
 		return "error";
 		}

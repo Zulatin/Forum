@@ -25,12 +25,20 @@ public class Dao {
   private List<Post> posts;
   private List<Category> categories;
   private List<User> users;
+  private static Dao uniqueInstance;
   
     public Dao() {
         comments=new ArrayList<Comment>();
         posts=new ArrayList<Post>();
         categories=new ArrayList<Category>();
         users=new ArrayList<User>();
+    }
+    
+    public static Dao getInstance(){
+        if (uniqueInstance == null){
+            uniqueInstance = new Dao();
+        }
+        return uniqueInstance;
     }
     
     public List<Comment> getAllComments(){

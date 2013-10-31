@@ -64,9 +64,10 @@ public class Service {
             return dao.getAllUsers();
         }
 	public User getValidUser(User user) {
-		for (User u : getUsers()) {
+            List<User> users=this.getUsers();
+		for (User u : users) {
 			if (u.getName().equals(user.getName())
-					&& u.getPassword()==user.getPassword()) {
+					&& u.getPassword()==(user.getPassword())) {
 				return u;
 			}
 		}

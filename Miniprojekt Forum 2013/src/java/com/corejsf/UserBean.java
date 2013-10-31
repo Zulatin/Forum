@@ -21,12 +21,10 @@ import javax.inject.Named;
 @Named
 @SessionScoped
 public class UserBean implements Serializable{
-    
+    private User user = new User();
     private User validUser;
     @Inject
     private Service service;
-    
-    private User user = new User();
     private User selected;
     
     public boolean isSelected(){

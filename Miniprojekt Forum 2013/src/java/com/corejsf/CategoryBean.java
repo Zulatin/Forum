@@ -40,7 +40,7 @@ public class CategoryBean implements Serializable {
     public String selectCategory(Category selected){
         this.selected=selected;
         category=selected.copy();
-        return "Category";
+        return "posts";
     }
     
     public String createCategory(){

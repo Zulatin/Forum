@@ -12,9 +12,9 @@
         </h6>
         <br></br><br></br><br></br>
         <h:form>
-            <h:dataTable value="#{service.getCurrentCategory().posts}" var="post">
+            <h:dataTable value="#{service.getCurrentPost().comments}" var="comment">
             <h:column>
-                <h:commandLink value="#{post.message}" action="#{service.setCurrentPost(post.message)}" />
+                #{comment.message}
             </h:column>
         </h:dataTable>
         

@@ -14,18 +14,18 @@ import java.util.List;
  * @author Henrik
  */
 public class Category {
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<>();;
     private User owner;
     private String title;
     
     public Category(User owner, String title){
-        posts = new ArrayList<>();
         this.owner = owner;
         this.title = title;
         
     }
 
     Category() {
+        this(null, "");
     }
     
     public String getTitle(){

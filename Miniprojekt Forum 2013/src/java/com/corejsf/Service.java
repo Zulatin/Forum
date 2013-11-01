@@ -2,6 +2,7 @@
 package com.corejsf;
 
 
+import java.util.Iterator;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -14,10 +15,15 @@ public class Service {
     
     
     private Dao dao;
+    private Category currentCategory;
         
 	public Service() {
-        dao = Dao.getInstance();
-            
+	}
+        
+         //Added to prevent double amount of links on the website
+        @PostConstruct
+        public void makeCategory(){
+            dao = Dao.getInstance();
             User u = new User("Lizette", 25, "Liz", "111");
             u.setAdmin(true);
             dao.addUser(u);
@@ -49,13 +55,7 @@ public class Service {
             Category c3=new Category(u4,"Opskrifter");
             dao.addCategory(c3);
             
-            
-	}
-        
-         //Added to prevent double amount of links on the website
-        @PostConstruct
-        public void makeCategory(Category c){
-            dao.addCategory(c);
+            c2.addPost(new Post(u5, "TEST"));
         }
         
         public void addUser(User user){
@@ -108,6 +108,29 @@ public class Service {
                     dao.deleteCategory(c);
                 }
             }
+        }
+        
+        public String setCurrentCategory(String title){
+            currentCategory = findCategory(title);
+            return "posts";
+        }
+        
+        public Category getCurrentCategory(){
+            return currentCategory;
+        }
+        
+        public Category findCategory(String title){
+            Category result = null;
+            boolean found = false;
+            Iterator<Category> itr = getCategories().iterator();
+            while (!found && itr.hasNext()){
+                Category temp = itr.next();
+                if (temp.getTitle().equals(title)){
+                    result = temp;
+                    found = true;
+                }
+            }
+            return result;
         }
 
 }

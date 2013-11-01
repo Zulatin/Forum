@@ -45,7 +45,7 @@ public class UserBean implements Serializable{
     
     public String createUser(){
         service.addUser(user);
-        return toUserList();
+        return "index";
     }
     
     public String updateUser(){
@@ -83,5 +83,7 @@ public class UserBean implements Serializable{
 		}
 	}
     
-    
+    public String registrer(){
+        return "Registrer";
+    }
 }

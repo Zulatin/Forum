@@ -3,6 +3,7 @@ package com.corejsf;
 
 
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
 import javax.inject.Named;
@@ -13,8 +14,7 @@ public class Service {
     
     
     private Dao dao;
-   
-
+        
 	public Service() {
         dao = Dao.getInstance();
             
@@ -51,6 +51,12 @@ public class Service {
             
             
 	}
+        
+         //Added to prevent double amount of links on the website
+        @PostConstruct
+        public void makeCategory(Category c){
+            dao.addCategory(c);
+        }
         
         public void addUser(User user){
             dao.addUser(user);

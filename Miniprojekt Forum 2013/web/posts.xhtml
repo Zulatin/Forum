@@ -10,7 +10,10 @@
            #{userBean.loginUser.name}<br></br>
            #{userBean.loginUser.username}
         </h6>
-        <br></br><br></br><br></br>
+        <h4>
+            Posts:
+        </h4>
+    
         <h:form>
             <h:dataTable value="#{service.getCurrentCategory().posts}" var="post">
             <h:column>

@@ -25,6 +25,8 @@ public class Service {
     @PostConstruct
     public void makeCategory(){
         dao = Dao.getInstance();
+        
+        //Users on the website
         User u = new User("Lizette", 25, "Liz", "111");
         u.setAdmin(true);
         dao.addUser(u);
@@ -44,6 +46,7 @@ public class Service {
         User u5 = new User("Dummy", 99, "Dummy", "555");
         dao.addUser(u5);
         
+        //Categories on the website        
         Category c=new Category(u,"Fagligt");
         dao.addCategory(c);
         
@@ -56,11 +59,27 @@ public class Service {
         Category c3=new Category(u4,"Opskrifter");
         dao.addCategory(c3);
         
-        Post p = new Post(u5, "TEST");
-        c2.addPost(p);
+        //Posts on the website 
+         Post p = new Post(u, "Valg af bøger");
+        c.addPost(p);
         
-        Comment com = new Comment(u5, "SVIN");
-        p.addComment(com);
+        Post p2 = new Post(u2, "Køb af hest");
+        c1.addPost(p2);
+        
+        Post p3 = new Post(u3, "Valg af bærbar");
+        c2.addPost(p3);
+        
+        Post p4 = new Post(u4, "Opskrift til tomatsuppe, lol");
+        c3.addPost(p4);
+        
+//        Comments on website 
+        Comment com = new Comment(u5, "Skal jeg købe en mac?");
+        p3.addComment(com);
+        
+        Comment com1 = new Comment(u2, "Mac er lort!");
+        p3.addComment(com1);
+        
+        
         
     }
     

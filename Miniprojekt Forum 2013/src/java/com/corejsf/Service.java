@@ -85,5 +85,23 @@ public class Service {
         public List<Category>getCategories(){
             return dao.getAllCategories();
         }
+        
+        public void deleteUser(User u){
+            for (Category c : getCategories()){
+                for (Post p : c.getPosts()){
+                    for (Comment c2 : p.getComments()){
+                        if (c2.getOwner().equals(u)){
+                            dao.deleteComment(c2);
+                        }
+                    }
+                    if (p.getOwner().equals(u)){
+                        dao.deletePost(p);
+                    }
+                }
+                if (c.getOwner().equals(u)){
+                    dao.deleteCategory(c);
+                }
+            }
+        }
 
 }

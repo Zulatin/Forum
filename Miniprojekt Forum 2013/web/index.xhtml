@@ -12,11 +12,11 @@
         <table>
             <tr>
                 <td>Name:</td>
-                <td><h:inputText value="#{userBean.user.name}" /></td>
+                <td><h:inputText value="#{userBean.loginUser.name}" /></td>
             </tr>
             <tr>
                 <td>Password:</td>
-                <td><h:inputSecret value="#{userBean.user.password}" /></td>
+                <td><h:inputSecret value="#{userBean.loginUser.password}" /></td>
             </tr>
         </table>
         <h:commandButton value="Login" action="#{userBean.login()}"/>

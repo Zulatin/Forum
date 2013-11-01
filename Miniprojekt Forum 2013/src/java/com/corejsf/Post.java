@@ -18,6 +18,9 @@ public class Post {
     private User owner;
     private String message;
     
+    public Post(){
+    }
+    
     public Post(User owner, String message){
         comments = new ArrayList<>();
         this.owner = owner;
@@ -47,6 +50,13 @@ public class Post {
     @Override
     public String toString(){
         return message;
+    }
+    
+    public Post copy(){
+        Post p=new Post();
+        p.owner=owner;
+        p.message=message;
+        return p;
     }
     
 }

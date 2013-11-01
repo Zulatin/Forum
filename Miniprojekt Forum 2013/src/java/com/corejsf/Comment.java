@@ -14,6 +14,9 @@ public class Comment {
     private User owner;
     private String message;
     
+    public Comment(){
+    }
+    
     public Comment(User owner, String message){
         this.owner = owner;
         this.message = message;
@@ -26,4 +29,12 @@ public class Comment {
     public String getMessage(){
         return message;
     }
+    
+    public Comment copy(){
+        Comment c=new Comment();
+        c.owner=owner;
+        c.message=message;
+        return c;
+    }
+    
 }

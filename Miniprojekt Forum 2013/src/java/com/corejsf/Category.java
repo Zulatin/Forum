@@ -26,7 +26,6 @@ public class Category {
     }
 
     Category() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public String getTitle(){
@@ -47,5 +46,12 @@ public class Category {
     
     public User getOwner(){
         return owner;
+    }
+    
+    public Category copy(){
+        Category c=new Category();
+        c.owner=owner;
+        c.title=title;
+        return c;
     }
 }

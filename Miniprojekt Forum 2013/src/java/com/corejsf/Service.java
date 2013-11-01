@@ -92,6 +92,14 @@ public class Service {
             return dao.getAllCategories();
         }
         
+        public void addCategory(Category category){
+            dao.addCategory(category);
+        }
+        
+        public void removeCategory(Category category){
+            dao.deleteCategory(category);
+        }
+        
         public void deleteUser(User u){
             for (Category c : getCategories()){
                 for (Post p : c.getPosts()){
@@ -109,6 +117,7 @@ public class Service {
                 }
             }
         }
+        
         
         public String setCurrentCategory(String title){
             currentCategory = findCategory(title);

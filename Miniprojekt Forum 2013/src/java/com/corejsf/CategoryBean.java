@@ -18,13 +18,49 @@ import javax.inject.Inject;
 @ManagedBean
 @RequestScoped
 public class CategoryBean implements Serializable {
+    private Category category=new Category();
+    private Category selected;
     
     @Inject
-
+    private Service service;
     /**
      * Creates a new instance of CategoryBean
      */
     public CategoryBean() {
+    }
+    
+    public Category getCategory(){
+        return category;
+    }
+    
+    public boolean isSelected(){
+        return selected!=null;
+    }
+    
+    public String selectCategory(Category selected){
+        this.selected=selected;
+        category=selected.copy();
+        return "Category";
+    }
+    
+    public String createCategory(){
+        service.addCategory(category);
+        return "Post";
+    }
+    
+    public String removeCategory(){
+        service.removeCategory(category);
+        return "Category";
+    }
+    
+    public String addPost(Post post){
+        category.addPost(post);
+        return "Posts";
+    }
+    
+    public String removePost(Post post){
+        category.removePost(post);
+        return "";
     }
     
 }

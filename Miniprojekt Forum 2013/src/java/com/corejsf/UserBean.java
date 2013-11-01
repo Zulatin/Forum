@@ -21,6 +21,7 @@ import javax.inject.Named;
 @Named
 @SessionScoped
 public class UserBean implements Serializable{
+    private User loginUser=new User();
     private User user = new User();
     private User validUser;
     @Inject
@@ -29,6 +30,10 @@ public class UserBean implements Serializable{
     
     public boolean isSelected(){
         return selected != null;
+    }
+    
+     public User getLoginUser(){
+        return loginUser;
     }
     
     public String newUser(){
@@ -72,13 +77,13 @@ public class UserBean implements Serializable{
     }
         
     public String login() {
-	validUser = service.getValidUser(user);
+	validUser = service.getValidUser(loginUser);
 	if (validUser != null) {
-		user.update(validUser);
+		loginUser.update(validUser);
 		return "welcome";
 	}
         else {
-		user = new User();
+		loginUser = new User();
 		return "error";
 		}
 	}

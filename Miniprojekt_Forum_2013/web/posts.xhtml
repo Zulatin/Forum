@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Forum</title>
+    </h:head>
+    <h:body>
+        <h6>
+           #{userBean.loginUser.name}<br></br>
+           #{userBean.loginUser.username}
+        </h6>
+        <h5>
+            #{service.getCurrentCategory().title}
+        </h5>
+        <h4>
+            Posts:
+        </h4>
+    
+        <h:form>
+            <h:dataTable value="#{service.getCurrentCategory().posts}" var="post">
+            <h:column>
+                <h:commandLink value="#{post.message}" action="#{service.setCurrentPost(post.message)}" />
+            </h:column>
+        </h:dataTable>
+        
+        <br></br><br></br><br></br><br></br><br></br><br></br>
+        <h:commandButton value="logout" action="index">
+        </h:commandButton>
+        <h:commandButton value="back" action ="velkommen"/>
+        </h:form>
+    </h:body>
+</html>

@@ -14,9 +14,9 @@
         <h2>Oktober 2013, Erhvervsakademi Aarhus</h2>
         <br></br><br></br><br></br>
         <h:form>
-        <h:dataTable value="#{service.categories}" var="cat">
+            <h:dataTable value="#{categoryBean.categories}" var="cat">
             <h:column>
-                <h:commandLink value="#{cat.title}" action="#{service.setCurrentCategory(cat.title)}"/>
+                <h:commandLink  value="#{cat.title}" action="#{categoryBean.selectCategory(cat)}"/>
             </h:column>
         </h:dataTable>
         

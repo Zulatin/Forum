@@ -18,6 +18,8 @@ public class Post {
     private User owner;
     private String message;
     
+    
+    
     public Post(){
     }
     

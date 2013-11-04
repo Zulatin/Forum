@@ -9,6 +9,8 @@ package com.corejsf;
 
 
 import java.io.Serializable;
+import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,8 +19,8 @@ import javax.inject.Named;
  *
  * @author Lizette
  */
-@Named("postBean")
-@RequestScoped
+@Named()
+@ApplicationScoped
 public class PostBean implements Serializable {
     private Post post=new Post();
     @Inject
@@ -39,7 +41,7 @@ public class PostBean implements Serializable {
     public String selectPost(Post selected){
         this.selected=selected;
         post=selected.copy();
-        return "Comment";
+        return "comments";
     }
     
     public String newPost(){
@@ -47,9 +49,15 @@ public class PostBean implements Serializable {
         post=new Post();
         return "post";
     }
+    
+    
+    public List<Comment>getComments(){
+        return selected.getComments();
+    }
+    
     public String addComment(){
-        post.addComment(comment.getComment());
-        return "";
+        selected.addComment(comment.getComment());
+        return "comments";
     }
     
     public String removeComment(){

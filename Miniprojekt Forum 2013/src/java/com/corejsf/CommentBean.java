@@ -16,10 +16,11 @@ import javax.inject.Named;
  *
  * @author Lizette
  */
-@Named("commentBean")
+@Named()
 @RequestScoped
 public class CommentBean implements Serializable {
     private Comment comment=new Comment();
+    private Comment selected;
     /**
      * Creates a new instance of CommentBean
      */
@@ -30,5 +31,13 @@ public class CommentBean implements Serializable {
         return comment;
     }
     
+    
+    
+    
+    public String newComment(){
+        selected=null;
+        comment=new Comment();
+        return "comments";
+    }
     
 }

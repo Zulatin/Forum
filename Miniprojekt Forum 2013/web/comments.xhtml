@@ -14,10 +14,10 @@
             Comments:
         </h4>
         <h5>
-            #{service.getCurrentCategory().title}>#{service.getCurrentPost()}
+            #{categoryBean.category.title}>#{postBean.post}
         </h5>
         <h:form>
-            <h:dataTable value="#{service.getCurrentPost().comments}" var="comment">
+            <h:dataTable value="#{postBean.getComments()}" var="comment">
             <h:column>
                 #{comment.message}
             </h:column>
@@ -26,10 +26,10 @@
 		<table>
     		<tr>
     		  <td valign="top">Comment :</td>
-                  <td><h:inputTextarea id="commentField" value="Kommentar"  cols="30" rows="10" /></td>
+                  <td><h:inputTextarea id="commentField" value="#{commentBean.comment.message}" cols="30" rows="10" /></td>
     		</tr> 
     		</table>
-            <h:commandButton value="Submit" action="Comments"/>
+            <h:commandButton value="Submit" action="#{postBean.addComment()}"/>
         <br></br><br></br><br></br><br></br><br></br><br></br>
         <h:commandButton value="logout" action="index">
         </h:commandButton>

@@ -15,8 +15,6 @@ public class Service {
     
     
     private Dao dao;
-    private Category currentCategory;
-    private Post currentPost;
     
     public Service() {
     }
@@ -97,20 +95,12 @@ public class Service {
     public User getValidUser(User user) {
         User result=null;
         for (User u : getUsers()) {
-            if (u.getName().equals(user.getName())
+            if (u.getUsername().equals(user.getUsername())
                     && u.getPassword().equals(user.getPassword())) {
                 result=u;
             }
         }
         return result;
-    }
-    
-    public List<Comment>getComments(Post post){
-        return post.getComments();
-    }
-    
-    public List<Post>getPosts(Category category){
-        return category.getPosts();
     }
     
     public List<Category>getCategories(){
@@ -142,52 +132,6 @@ public class Service {
             }
         }
         removeUser(u);
-    }
-    
-    public String setCurrentCategory(String title){
-        currentCategory = findCategory(title);
-        return "posts";
-    }
-    
-    public Category getCurrentCategory(){
-        return currentCategory;
-    }
-    
-    public Category findCategory(String title){
-        Category result = null;
-        boolean found = false;
-        Iterator<Category> itr = getCategories().iterator();
-        while (!found && itr.hasNext()){
-            Category temp = itr.next();
-            if (temp.getTitle().equals(title)){
-                result = temp;
-                found = true;
-            }
-        }
-        return result;
-    }
-    
-    public String setCurrentPost(String message){
-        currentPost = findCurrentPost(message);
-        return "comments";
-    }
-    
-    public Post findCurrentPost(String message){
-        Post result = null;
-        boolean found = false;
-        Iterator<Post> itr = currentCategory.getPosts().iterator();
-        while (!found && itr.hasNext()){
-            Post temp = itr.next();
-            if (temp.getMessage().equals(message)){
-                result = temp;
-                found = true;
-            }
-        }
-        return result;
-    }
-    
-    public Post getCurrentPost(){
-        return currentPost;
     }
     
 }

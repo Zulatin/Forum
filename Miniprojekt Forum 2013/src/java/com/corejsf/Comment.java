@@ -30,11 +30,19 @@ public class Comment {
         return message;
     }
     
+    public void setMessage(String message){
+        this.message=message;
+    }
+    
     public Comment copy(){
         Comment c=new Comment();
         c.owner=owner;
         c.message=message;
         return c;
+    }
+    
+    public String toString(){
+        return message;
     }
     
 }

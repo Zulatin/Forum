@@ -7,6 +7,8 @@
 package com.corejsf;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -16,15 +18,15 @@ import javax.inject.Named;
  * @author Tobias
  */
 @Named
-@RequestScoped
+@ApplicationScoped
 public class CategoryBean implements Serializable {
     private Category category=new Category();
     private Category selected;
+ 
     
     @Inject
     private Service service;
-    @Inject
-    private PostBean post;
+   
     /**
      * Creates a new instance of CategoryBean
      */
@@ -48,26 +50,35 @@ public class CategoryBean implements Serializable {
     public String newCategory(){
         selected=null;
         category=new Category();
-        return "posts";
+        return "";
     }
     
     public String createCategory(){
         service.addCategory(category);
-        return "Post";
+        return "velkommen";
+    }
+    
+    public List<Category> getCategories(){
+        return service.getCategories();
     }
     
     public String removeCategory(){
         service.removeCategory(category);
-        return "Category";
+        return "velkommen";
     }
     
-    public String addPost(){
-        category.addPost(post.getPost());
-        return "Posts";
+    public String addPost(Post post){
+        category.addPost(post);
+        return "velkommen";
     }
     
-    public String removePost(){
-        category.removePost(post.getPost());
-        return "";
+    public String removePost(Post post){
+        category.removePost(post);
+        return "velkommen";
+    }
+    
+    public List<Post> getPosts(){
+        return selected.getPosts();
+        
     }
 }

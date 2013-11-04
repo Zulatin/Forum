@@ -11,16 +11,16 @@
            #{userBean.loginUser.username}
         </h6>
         <h5>
-            #{service.getCurrentCategory().title}
+            #{categoryBean.category.title}
         </h5>
         <h4>
             Posts:
         </h4>
     
         <h:form>
-            <h:dataTable value="#{service.getCurrentCategory().posts}" var="post">
+            <h:dataTable value="#{categoryBean.getPosts()}" var="p">
             <h:column>
-                <h:commandLink value="#{post.message}" action="#{service.setCurrentPost(post.message)}" />
+                <h:commandLink value="#{p.message}" action="#{postBean.selectPost(p)}" />
             </h:column>
         </h:dataTable>
         

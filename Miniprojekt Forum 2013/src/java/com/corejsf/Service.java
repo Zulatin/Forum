@@ -141,7 +141,7 @@ public class Service {
                 dao.removeCategory(c);
             }
         }
-        dao.removeUser(u);
+        removeUser(u);
     }
     
     public String setCurrentCategory(String title){

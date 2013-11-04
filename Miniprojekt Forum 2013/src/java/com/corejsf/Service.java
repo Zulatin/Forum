@@ -88,7 +88,7 @@ public class Service {
     }
     
     public void removeUser(User user){
-        dao.deleteUser(user);
+        dao.removeUser(user);
     }
     
     public List<User> getUsers(){
@@ -105,12 +105,12 @@ public class Service {
         return result;
     }
     
-    public List<Comment>getComments(){
-        return dao.getAllComments();
+    public List<Comment>getComments(Post post){
+        return post.getComments();
     }
     
-    public List<Post>getPosts(){
-        return dao.getAllPosts();
+    public List<Post>getPosts(Category category){
+        return category.getPosts();
     }
     
     public List<Category>getCategories(){
@@ -122,7 +122,7 @@ public class Service {
     }
     
     public void removeCategory(Category category){
-        dao.deleteCategory(category);
+        dao.removeCategory(category);
     }
     
     public void deleteUser(User u){
@@ -130,17 +130,18 @@ public class Service {
             for (Post p : c.getPosts()){
                 for (Comment c2 : p.getComments()){
                     if (c2.getOwner().equals(u)){
-                        dao.deleteComment(c2);
+                        p.removeComment(c2);
                     }
                 }
                 if (p.getOwner().equals(u)){
-                    dao.deletePost(p);
+                    c.removePost(p);
                 }
             }
             if (c.getOwner().equals(u)){
-                dao.deleteCategory(c);
+                dao.removeCategory(c);
             }
         }
+        dao.removeUser(u);
     }
     
     public String setCurrentCategory(String title){

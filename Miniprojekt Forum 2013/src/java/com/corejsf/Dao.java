@@ -21,15 +21,15 @@ import javax.inject.Named;
 @ApplicationScoped
 public class Dao {
 
-  private  List<Comment> comments;
-  private  List<Post> posts;
+ // private  List<Comment> comments;
+  //private  List<Post> posts;
   private  List<Category> categories;
   private  List<User> users;
   private static Dao uniqueInstance;
   
   public Dao(){
-      comments=new ArrayList<Comment>();
-      posts=new ArrayList<Post>();
+      //comments=new ArrayList<Comment>();
+      //posts=new ArrayList<Post>();
       categories=new ArrayList<Category>();
       users=new ArrayList<User>();
   }
@@ -41,13 +41,13 @@ public class Dao {
         return uniqueInstance;
     }
     
-    public List<Comment> getAllComments(){
-        return new ArrayList<Comment>(comments);
-    }
+   // public List<Comment> getAllComments(){
+   //     return new ArrayList<Comment>(comments);
+   // }
     
-    public List<Post> getAllPosts(){
-        return new ArrayList<Post>(posts);
-    }
+   // public List<Post> getAllPosts(){
+   //     return new ArrayList<Post>(posts);
+   // }
     
     public List<Category> getAllCategories(){
         return new ArrayList<Category> (categories);
@@ -57,17 +57,17 @@ public class Dao {
         return new ArrayList<User>(users);
     }
     
-    public void addComment(Comment comment) {
-	if (!comments.contains(comment)){
-            comments.add(comment);
-        }
-    }
+  //  public void addComment(Comment comment) {
+  //	if (!comments.contains(comment)){
+  //          comments.add(comment);
+  //      }
+  // }
     
-    public void addPost(Post post) {
-	if (!posts.contains(post)){
-           posts.add(post);
-        }
-    }
+  //  public void addPost(Post post) {
+  //	if (!posts.contains(post)){
+  //         posts.add(post);
+  //      }
+  //  }
     
     public void addCategory(Category category) {
 	if (!categories.contains(category)){
@@ -81,19 +81,19 @@ public class Dao {
         }
     }
     
-    public void deleteComment(Comment comment) {
-	comments.remove(comment);
-    }
+   // public void deleteComment(Comment comment) {
+   //	comments.remove(comment);
+   // }
     
-    public void deletePost(Post post) {
-	posts.remove(post);
-    }
+  //  public void deletePost(Post post) {
+  //	posts.remove(post);
+  //  }
     
-    public void deleteCategory(Category category) {
-	categories.remove(category);
-    }
+    public void removeCategory(Category category) {
+  	categories.remove(category);
+   }
     
-    public void deleteUser(User user) {
+    public void removeUser(User user) {
 	users.remove(user);
     }
       

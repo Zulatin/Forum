@@ -88,7 +88,8 @@ public class UserBean implements Serializable{
 		}
 	}
     
+    
     public String registrer(){
-        return "Registrer";
+        return "registrer";
     }
 }

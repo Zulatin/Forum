@@ -6,21 +6,20 @@
 
 package com.corejsf;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
+
+
+import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Lizette
  */
-@ManagedBean
+@Named("commentBean")
 @RequestScoped
-public class CommentBean {
+public class CommentBean implements Serializable {
     private Comment comment=new Comment();
-    
-    @Inject 
-    private PostBean post;
     /**
      * Creates a new instance of CommentBean
      */
@@ -31,12 +30,5 @@ public class CommentBean {
         return comment;
     }
     
-    public String createComment(){
-        return post.addComment(comment);
-    }
-    
-    public String removeComment(){
-        return post.removeComment(comment);
-    }
     
 }

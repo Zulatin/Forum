@@ -7,7 +7,9 @@
 package com.corejsf;
 
 
-import javax.faces.bean.RequestScoped;
+
+import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -15,12 +17,12 @@ import javax.inject.Named;
  *
  * @author Lizette
  */
-@Named
+@Named("postBean")
 @RequestScoped
-public class PostBean {
+public class PostBean implements Serializable {
     private Post post=new Post();
     @Inject
-    private CategoryBean category;
+    private CommentBean comment;
     private Post selected;
     
     public PostBean(){
@@ -40,21 +42,18 @@ public class PostBean {
         return "Comment";
     }
     
-    public String createPost(){
-      return category.addPost(post); 
+    public String newPost(){
+        selected=null;
+        post=new Post();
+        return "post";
     }
-    
-    public String deletePost(){
-        return category.removePost(post);
-    }
-    
-    public String addComment(Comment comment){
-        post.addComment(comment);
+    public String addComment(){
+        post.addComment(comment.getComment());
         return "";
     }
     
-    public String removeComment(Comment comment){
-        post.removeComment(comment);
+    public String removeComment(){
+        post.removeComment(comment.getComment());
         return "";
     }
 }

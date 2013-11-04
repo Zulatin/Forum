@@ -13,7 +13,9 @@
         <h4>
             Comments:
         </h4>
-        
+        <h5>
+            #{service.getCurrentCategory().title}>#{service.getCurrentPost()}
+        </h5>
         <h:form>
             <h:dataTable value="#{service.getCurrentPost().comments}" var="comment">
             <h:column>

@@ -20,7 +20,15 @@
                 #{comment.message}
             </h:column>
         </h:dataTable>
-        
+        <h:form>
+		<table>
+    		<tr>
+    		  <td valign="top">Comment :</td>
+                  <td><h:inputTextarea value="#{comment.message}" cols="30" rows="10" /></td>
+    		</tr> 
+    		</table>
+            <h:commandButton value="Submit" action="Posts"/>
+    	  </h:form>
         <br></br><br></br><br></br><br></br><br></br><br></br>
         <h:commandButton value="logout" action="index">
         </h:commandButton>

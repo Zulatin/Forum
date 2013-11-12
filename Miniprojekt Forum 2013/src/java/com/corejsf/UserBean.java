@@ -49,7 +49,7 @@ public class UserBean implements Serializable{
     }
     
     public String createUser(){
-        service.addUser(user);
+        service.addUser(loginUser);
         return "index";
     }
     

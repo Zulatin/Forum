@@ -20,13 +20,12 @@
             </ui:define>
             <ui:define name="content">
         <h:form>
-            <p:dataTable value="#{categoryBean.categories}" var="cat">
+            <p:dataTable value="#{categoryBean.getCategories()}" var="cat">
             <p:column>
-                <p:commandLink  value="#{cat.title}" action="#{categoryBean.selectCategory(cat)}"/>
+                <h:commandLink  value="#{cat.title}" action="#{categoryBean.selectCategory(cat)}"/>
                 by #{cat.owner.username}
             </p:column>
-        </p:dataTable>
-            
+            </p:dataTable>
             <table>
     		<tr>
     		  <td valign="top">Category :</td>
@@ -34,8 +33,6 @@
     		</tr> 
     		</table>
            <h:commandButton value="Create Category" action="#{categoryBean.createCategory()}"/>
-            
-            
         </h:form>
          </ui:define>
             <ui:define name="bottom">  

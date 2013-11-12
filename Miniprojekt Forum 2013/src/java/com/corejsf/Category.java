@@ -32,6 +32,10 @@ public class Category {
         return title;
     }
     
+    public void setTitle(String title){
+        this.title=title;
+    }
+    
     public void addPost(Post p){
         posts.add(p);
     }

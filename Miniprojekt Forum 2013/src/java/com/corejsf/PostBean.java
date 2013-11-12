@@ -48,7 +48,7 @@ public class PostBean implements Serializable {
     public String newPost(){
         selected=null;
         post=new Post();
-        return "post";
+        return "posts";
     }
     
     

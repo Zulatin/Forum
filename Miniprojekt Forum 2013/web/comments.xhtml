@@ -1,39 +1,53 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+     <h:head>
         <title>Forum</title>
     </h:head>
     <h:body>
+        <ui:composition template="ForumTemplate.xhtml">
+            <ui:define name="top">
         <h6>
            #{userBean.loginUser.name}<br></br>
            #{userBean.loginUser.username}
         </h6>
-        <h4>
-            Comments:
-        </h4>
+        
         <h5>
             #{categoryBean.category.title}>#{postBean.post}
         </h5>
+                
+        <h4>
+            Comments:
+        </h4>
+        
+            </ui:define>
+            <ui:define name="content">
         <h:form>
-            <h:dataTable value="#{postBean.getComments()}" var="comment">
-            <h:column>
+            <p:dataTable value="#{postBean.getComments()}" var="comment">
+            <p:column>
                 #{comment.message}
-            </h:column>
-        </h:dataTable>
+            </p:column>
+        </p:dataTable>
         
 		<table>
     		<tr>
     		  <td valign="top">Comment :</td>
-                  <td><h:inputTextarea id="commentField" value="#{commentBean.comment.message}" cols="30" rows="10" /></td>
+                  <td><p:inputTextarea id="commentField" value="#{commentBean.comment.message}" cols="30" rows="10" /></td>
     		</tr> 
     		</table>
             <h:commandButton value="Submit" action="#{postBean.addComment()}"/>
-        <br></br><br></br><br></br><br></br><br></br><br></br>
+        </h:form>
+            </ui:define>
+            <ui:define name="bottom">
+                <h:form>
         <h:commandButton value="logout" action="index">
         </h:commandButton>
         <h:commandButton value="back" action="posts"/>
         </h:form>
+                </ui:define>
+       </ui:composition>
     </h:body>
 </html>

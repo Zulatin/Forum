@@ -23,9 +23,10 @@ import javax.inject.Named;
 @ApplicationScoped
 public class PostBean implements Serializable {
     private Post post=new Post();
+    private Post selected=null;
     @Inject
     private CommentBean comment;
-    private Post selected;
+  
     
     public PostBean(){
     }
@@ -63,5 +64,10 @@ public class PostBean implements Serializable {
     public String removeComment(){
         post.removeComment(comment.getComment());
         return "";
+    }
+    
+    public String toPosts(){
+        this.newPost();
+        return "posts";
     }
 }

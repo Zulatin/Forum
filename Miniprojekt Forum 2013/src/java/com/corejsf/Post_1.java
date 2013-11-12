@@ -21,6 +21,7 @@ public class Post {
     
     
     public Post(){
+        comments=new ArrayList<>();
     }
     
     public Post(User owner, String message){
@@ -47,6 +48,10 @@ public class Post {
     
     public String getMessage(){
         return message;
+    }
+    
+    public void setMessage(String message){
+        this.message=message;
     }
     
     @Override

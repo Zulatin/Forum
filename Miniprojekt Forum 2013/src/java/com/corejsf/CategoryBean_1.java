@@ -23,7 +23,8 @@ public class CategoryBean implements Serializable {
     private Category category=new Category();
     private Category selected;
  
-    
+    @Inject
+    private PostBean post;
     @Inject
     private Service service;
    
@@ -67,9 +68,10 @@ public class CategoryBean implements Serializable {
         return "velkommen";
     }
     
-    public String addPost(Post post){
-        category.addPost(post);
-        return "velkommen";
+    public String addPost(){
+        selected.addPost(post.getPost());
+        
+        return post.toPosts();
     }
     
     public String removePost(Post post){

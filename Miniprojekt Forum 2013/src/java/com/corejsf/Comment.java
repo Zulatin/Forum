@@ -18,16 +18,10 @@ public class Comment {
     private User owner;
     private String message;
     private long time;
-
-    public void setTime(long time) {
-        this.time = time;
-    }
-
-    public long getTime() {
-        return time;
-    }
     private Date date;
     private String stamp;
+
+ 
     
     public Comment(){
     }
@@ -35,6 +29,14 @@ public class Comment {
     public Comment(User owner, String message){
         this.owner = owner;
         this.message = message;
+    }
+    
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public long getTime() {
+        return time;
     }
     
     public User getOwner(){
@@ -58,7 +60,7 @@ public class Comment {
     
     public String getDate() {
         date = new Date(getTime());
-        DateFormat formatter = new SimpleDateFormat("hh:mm EEEEEEEEEE");
+        DateFormat formatter = new SimpleDateFormat("hh:mm EEEEEEEEEE dd/mm-yyyy");
         stamp = formatter.format(date);
         return stamp;
     }

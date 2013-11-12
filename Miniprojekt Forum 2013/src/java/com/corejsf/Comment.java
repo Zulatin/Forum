@@ -6,6 +6,10 @@
 
 package com.corejsf;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Henrik
@@ -13,6 +17,17 @@ package com.corejsf;
 public class Comment {
     private User owner;
     private String message;
+    private long time;
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public long getTime() {
+        return time;
+    }
+    private Date date;
+    private String stamp;
     
     public Comment(){
     }
@@ -39,6 +54,13 @@ public class Comment {
         c.owner=owner;
         c.message=message;
         return c;
+    }
+    
+    public String getDate() {
+        date = new Date(getTime());
+        DateFormat formatter = new SimpleDateFormat("hh:mm EEEEEEEEEE");
+        stamp = formatter.format(date);
+        return stamp;
     }
     
     public String toString(){

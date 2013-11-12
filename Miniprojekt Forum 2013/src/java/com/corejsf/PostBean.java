@@ -58,6 +58,7 @@ public class PostBean implements Serializable {
     
     public String addComment(){
         selected.addComment(comment.getComment());
+        comment.getComment().setTime(System.currentTimeMillis());
         return comment.newComment();
     }
     

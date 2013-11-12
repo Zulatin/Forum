@@ -58,7 +58,7 @@ public class PostBean implements Serializable {
     
     public String addComment(){
         selected.addComment(comment.getComment());
-        return "comments";
+        return comment.newComment();
     }
     
     public String removeComment(){

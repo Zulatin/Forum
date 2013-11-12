@@ -51,12 +51,12 @@ public class CategoryBean implements Serializable {
     public String newCategory(){
         selected=null;
         category=new Category();
-        return "";
+        return "velkommen";
     }
     
     public String createCategory(){
         service.addCategory(category);
-        return "velkommen";
+        return newCategory();
     }
     
     public List<Category> getCategories(){

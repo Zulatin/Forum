@@ -34,6 +34,7 @@ public class PostBean implements Serializable {
     }
     
     public Post getPost(){
+        post.setOwner(user.getLoginUser());
         return post;
     }
     

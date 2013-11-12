@@ -37,6 +37,7 @@ public class CategoryBean implements Serializable {
     }
     
     public Category getCategory(){
+        category.setOwner(user.getLoginUser());
         return category;
     }
     

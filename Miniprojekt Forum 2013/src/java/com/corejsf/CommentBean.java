@@ -26,6 +26,7 @@ public class CommentBean implements Serializable {
     }
     
     public Comment getComment(){
+        comment.setOwner(user.getLoginUser());
         return comment;
     }
     

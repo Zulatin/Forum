@@ -29,6 +29,8 @@
             <p:dataTable value="#{postBean.getComments()}" var="comment">
             <p:column>
                 #{comment.message}
+                <br></br>
+                by #{comment.owner.username}
             </p:column>
         </p:dataTable>
         

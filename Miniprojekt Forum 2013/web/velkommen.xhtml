@@ -23,6 +23,7 @@
             <p:dataTable value="#{categoryBean.categories}" var="cat">
             <p:column>
                 <p:commandLink  value="#{cat.title}" action="#{categoryBean.selectCategory(cat)}"/>
+                by #{cat.owner.username}
             </p:column>
         </p:dataTable>
             

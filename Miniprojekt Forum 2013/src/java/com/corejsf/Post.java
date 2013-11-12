@@ -46,6 +46,10 @@ public class Post {
         return owner;
     }
     
+    public void setOwner(User owner){
+        this.owner = owner;
+    }
+    
     public String getMessage(){
         return message;
     }

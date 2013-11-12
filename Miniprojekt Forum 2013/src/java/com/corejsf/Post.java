@@ -6,7 +6,10 @@
 
 package com.corejsf;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +20,9 @@ public class Post {
     private List<Comment> comments;
     private User owner;
     private String message;
+    private long time;
+    private Date date;
+    private String stamp;
     
     
     
@@ -56,6 +62,21 @@ public class Post {
     
     public void setMessage(String message){
         this.message=message;
+    }
+    
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+    
+    public String getDate() {
+        date = new Date(getTime());
+        DateFormat formatter = new SimpleDateFormat("hh:mm EEEEEEEEEE dd/MM-yyyy");
+        stamp = formatter.format(date);
+        return stamp;
     }
     
     @Override

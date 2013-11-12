@@ -70,6 +70,7 @@ public class CategoryBean implements Serializable {
     
     public String addPost(){
         selected.addPost(post.getPost());
+        post.getPost().setTime(System.currentTimeMillis());
         return post.toPosts();
     }
     

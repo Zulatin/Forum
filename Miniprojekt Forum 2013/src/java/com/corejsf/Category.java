@@ -6,7 +6,10 @@
 
 package com.corejsf;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +20,9 @@ public class Category {
     private List<Post> posts = new ArrayList<>();;
     private User owner;
     private String title;
+    private long time;
+    private Date date;
+    private String stamp;
     
     public Category(User owner, String title){
         this.owner = owner;
@@ -50,6 +56,21 @@ public class Category {
     
     public User getOwner(){
         return owner;
+    }
+    
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+    
+    public String getDate() {
+        date = new Date(getTime());
+        DateFormat formatter = new SimpleDateFormat("hh:mm EEEEEEEEEE");
+        stamp = formatter.format(date);
+        return stamp;
     }
     
     public Category copy(){

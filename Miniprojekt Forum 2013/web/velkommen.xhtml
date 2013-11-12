@@ -23,7 +23,7 @@
             <p:dataTable value="#{categoryBean.getCategories()}" var="cat">
             <p:column>
                 <h:commandLink  value="#{cat.title}" action="#{categoryBean.selectCategory(cat)}"/>
-                by #{cat.owner.username}
+                by #{cat.owner.username} #{cat.date}
             </p:column>
             </p:dataTable>
             <table>

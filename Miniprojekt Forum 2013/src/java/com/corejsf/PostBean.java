@@ -26,6 +26,8 @@ public class PostBean implements Serializable {
     private Post selected=null;
     @Inject
     private CommentBean comment;
+    @Inject
+    private UserBean user;
   
     
     public PostBean(){
@@ -48,6 +50,7 @@ public class PostBean implements Serializable {
     public String newPost(){
         selected=null;
         post=new Post();
+        post.setOwner(user.getLoginUser());
         return "posts";
     }
     

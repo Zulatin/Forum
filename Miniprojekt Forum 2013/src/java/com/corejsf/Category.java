@@ -58,6 +58,10 @@ public class Category {
         return owner;
     }
     
+    public void setOwner(User owner){
+        this.owner = owner;
+    }
+    
     public long getTime() {
         return time;
     }

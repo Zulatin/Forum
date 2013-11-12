@@ -43,6 +43,10 @@ public class Comment {
         return owner;
     }
     
+    public void setOwner(User owner){
+        this.owner = owner;
+    }
+    
     public String getMessage(){
         return message;
     }
@@ -65,6 +69,7 @@ public class Comment {
         return stamp;
     }
     
+    @Override
     public String toString(){
         return message;
     }

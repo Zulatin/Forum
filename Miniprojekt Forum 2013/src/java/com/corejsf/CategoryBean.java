@@ -27,6 +27,8 @@ public class CategoryBean implements Serializable {
     private PostBean post;
     @Inject
     private Service service;
+    @Inject
+    private UserBean user;
    
     /**
      * Creates a new instance of CategoryBean
@@ -51,7 +53,8 @@ public class CategoryBean implements Serializable {
     public String newCategory(){
         selected=null;
         category=new Category();
-        return "velkommen";
+        category.setOwner(user.getLoginUser());
+        return "welcome";
     }
     
     public String createCategory(){
@@ -65,7 +68,7 @@ public class CategoryBean implements Serializable {
     
     public String removeCategory(){
         service.removeCategory(category);
-        return "velkommen";
+        return "welcome";
     }
     
     public String addPost(){
@@ -76,7 +79,7 @@ public class CategoryBean implements Serializable {
     
     public String removePost(Post post){
         category.removePost(post);
-        return "velkommen";
+        return "welcome";
     }
     
     public List<Post> getPosts(){

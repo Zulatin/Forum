@@ -12,6 +12,7 @@ public class User {
     private String password;
     private String name;
     private boolean admin=false;
+    private boolean sel=false;
     
      public User() {
         this("",0,"","");
@@ -24,6 +25,14 @@ public class User {
         this.password=password;
     }
 
+    public boolean isSel(){
+        return sel;
+    }
+    
+    public void setSel(boolean sel){
+        this.sel=sel;
+    }
+     
     public String getName() {
         return name;
     }
@@ -82,6 +91,7 @@ public class User {
         user.username = username;
         return user;  
     }
+    
     
     
 }

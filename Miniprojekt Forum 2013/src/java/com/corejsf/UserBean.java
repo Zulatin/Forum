@@ -7,6 +7,7 @@
 package com.corejsf;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -28,8 +29,12 @@ public class UserBean implements Serializable{
     private Service service;
     private User selected;
     
-    public boolean isSelected(){
-        return selected != null;
+    //public boolean isSelected(){
+      //  return selected != null;
+    //}
+    
+    public User getSelected(){
+        return selected;
     }
     
      public User getLoginUser(){
@@ -39,17 +44,16 @@ public class UserBean implements Serializable{
     public String newUser(){
         selected = null;
         user = new User();
-        return "userDetail";
-    }
-    
-    public String selectUser(User selected){
-        this.selected = selected;
-        user = selected.copy();
         return "delete";
     }
     
+    public void setSelected(User selected){
+        this.selected = selected;
+        user = selected.copy(); 
+    }
+    
     public String createUser(){
-        service.addUser(loginUser);
+        service.addUser(user);
         return "index";
     }
     
@@ -59,8 +63,8 @@ public class UserBean implements Serializable{
     }
     
     public String deleteUser() {
-        service.removeUser(selected);
-        return toUserList();
+        service.deleteUser(selected);
+        return newUser();
     }
     
     public List<User> getUsers(){
@@ -90,6 +94,8 @@ public class UserBean implements Serializable{
     
     
     public String register(){
+        selected = null;
+        user = new User();
         return "register";
     }
 }

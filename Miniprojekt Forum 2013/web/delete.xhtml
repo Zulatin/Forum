@@ -20,18 +20,19 @@
             </ui:define>
             <ui:define name="content">
         <h:form>
-            <p:dataTable value="#{userBean.users}" var="u" >
+            <p:dataTable var="u" value="#{userBean.users}" rowKey="#{u.username}" selection="#{userBean.selected}" selectionMode="single">
             <p:column>
-              #{u.username}
+                #{u.username}
             </p:column>
         </p:dataTable>
+            <h:commandButton value="delete user" action="#{userBean.deleteUser()}"/>
         </h:form>
             </ui:define>
             <ui:define name="bottom">
                 <h:form>
-        <h:commandButton value="logout" action="index">
-        </h:commandButton>
+        <h:commandButton value="logout" action="index"/>
         <h:commandButton value="back" action="welcome"/>
+        
         </h:form>
                 </ui:define>
        </ui:composition>

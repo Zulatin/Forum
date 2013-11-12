@@ -46,35 +46,45 @@ public class Service {
         
         //Categories on the website        
         Category c=new Category(u,"Fagligt");
+        c.setTime(System.currentTimeMillis());
         dao.addCategory(c);
         
         Category c1=new Category(u2,"Fritid");
+        c1.setTime(System.currentTimeMillis());
         dao.addCategory(c1);
         
         Category c2=new Category(u3,"Computer");
+        c2.setTime(System.currentTimeMillis());
         dao.addCategory(c2);
         
         Category c3=new Category(u4,"Opskrifter");
+        c3.setTime(System.currentTimeMillis());
         dao.addCategory(c3);
         
         //Posts on the website 
          Post p = new Post(u, "Valg af bøger");
+         p.setTime(System.currentTimeMillis());
         c.addPost(p);
         
         Post p2 = new Post(u2, "Køb af hest");
+        p2.setTime(System.currentTimeMillis());
         c1.addPost(p2);
         
         Post p3 = new Post(u3, "Valg af bærbar");
+        p3.setTime(System.currentTimeMillis());
         c2.addPost(p3);
         
         Post p4 = new Post(u4, "Opskrift til tomatsuppe, lol");
+        p4.setTime(System.currentTimeMillis());
         c3.addPost(p4);
         
 //        Comments on website 
         Comment com = new Comment(u5, "Skal jeg købe en mac?");
+        com.setTime(System.currentTimeMillis());
         p3.addComment(com);
         
         Comment com1 = new Comment(u2, "Mac er lort!");
+        com1.setTime(System.currentTimeMillis());
         p3.addComment(com1);
         
         
@@ -131,7 +141,7 @@ public class Service {
                 dao.removeCategory(c);
             }
         }
-        removeUser(u);
+        dao.removeUser(u);
     }
     
 }

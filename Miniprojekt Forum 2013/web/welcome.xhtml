@@ -38,7 +38,7 @@
             <ui:define name="bottom">  
                 <h:form>
         <h:commandButton value="logout" action="index"></h:commandButton>
-        <h:commandButton value="delete" action="delete" rendered="#{userBean.loginUser.admin}"></h:commandButton>
+        <h:commandButton value="delete" action="#{userBean.newUser()}" rendered="#{userBean.loginUser.admin}"></h:commandButton>
         </h:form>
         </ui:define>         
         </ui:composition>

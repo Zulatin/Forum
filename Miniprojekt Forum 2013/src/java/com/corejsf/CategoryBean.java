@@ -38,6 +38,7 @@ public class CategoryBean implements Serializable {
     
     public Category getCategory(){
         category.setOwner(user.getLoginUser());
+        category.setTime(System.currentTimeMillis());
         return category;
     }
     

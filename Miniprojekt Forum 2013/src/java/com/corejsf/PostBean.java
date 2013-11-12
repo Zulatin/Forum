@@ -35,6 +35,7 @@ public class PostBean implements Serializable {
     
     public Post getPost(){
         post.setOwner(user.getLoginUser());
+        post.setTime(System.currentTimeMillis());
         return post;
     }
     

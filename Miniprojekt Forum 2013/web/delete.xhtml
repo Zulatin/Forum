@@ -14,41 +14,24 @@
            #{userBean.loginUser.name}<br></br>
            #{userBean.loginUser.username}<br></br>
         </h6>
-        
-        <h5>
-            #{categoryBean.category.title}>#{postBean.post}
-        </h5>
-                
         <h4>
-            Comments:
+            Delete user:
         </h4>
-        
             </ui:define>
             <ui:define name="content">
         <h:form>
-            <p:dataTable value="#{postBean.getComments()}" var="comment">
+            <p:dataTable value="#{userBean.users}" var="u" >
             <p:column>
-                #{comment.message}
-                <br></br>
-                by #{comment.owner.username} #{comment.date}
+              #{u.username}
             </p:column>
         </p:dataTable>
-        
-		<table>
-    		<tr>
-    		  <td valign="top">Comment :</td>
-                  <td><p:inputTextarea id="commentField" value="#{commentBean.comment.message}" cols="30" rows="10" /></td>
-    		</tr> 
-    		</table>
-            <h:commandButton value="Submit" action="#{postBean.addComment()}"/>
         </h:form>
             </ui:define>
             <ui:define name="bottom">
                 <h:form>
         <h:commandButton value="logout" action="index">
         </h:commandButton>
-        <h:commandButton value="back" action="posts"/>
-        <h:commandButton value="delete" action="delete" rendered="#{userBean.loginUser.admin}"></h:commandButton>
+        <h:commandButton value="back" action="welcome"/>
         </h:form>
                 </ui:define>
        </ui:composition>

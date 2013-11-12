@@ -42,6 +42,7 @@
                 <h:form>      
         <h:commandButton value="logout" action="index"/>
         <h:commandButton value="back" action ="welcome"/>
+        <h:commandButton value="delete" action="delete" rendered="#{userBean.loginUser.admin}"/>
         </h:form>
            </ui:define>
         </ui:composition>

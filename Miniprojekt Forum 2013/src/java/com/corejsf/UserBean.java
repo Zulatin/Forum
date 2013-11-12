@@ -45,7 +45,7 @@ public class UserBean implements Serializable{
     public String selectUser(User selected){
         this.selected = selected;
         user = selected.copy();
-        return "userDetail";
+        return "delete";
     }
     
     public String createUser(){

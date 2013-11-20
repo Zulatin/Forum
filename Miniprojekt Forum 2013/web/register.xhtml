@@ -1,13 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Register</title>
     </h:head>
     <h:body>
+         <ui:composition template="ForumTemplate.xhtml">
+             <ui:define name="top">
         <h1>Register new user</h1>
         Please fill in this sign-up form
+             </ui:define>
+             <ui:define name="content">
         <h3>
             Personal information
         </h3>
@@ -22,7 +27,7 @@
                 <td><h:inputText id="age" value="#{userBean.user.age}" size="3" /></td>
             </tr>
         </table>
-            <br></br><br></br><br></br><br></br>
+            <br></br>
             
         </h:form>
         <h3>
@@ -42,13 +47,16 @@
                   <td>Repeat password: </td>
                   <td><h:inputSecret id="password2"  value="#{userBean.user.password}"/></td>
               </tr>
-              <br></br><br></br>
-              <tr>
+              </table>
+        </h:form>
+             </ui:define>
+             <ui:define name="bottom">
+             <h:form>
                   <td><h:commandButton id="registrer" value="Register" action="#{userBean.createUser()}"></h:commandButton></td>
                   <td><h:commandButton id="back" value="Back" action="index"></h:commandButton></td>
-              </tr>
-        </table>
         </h:form>
+             </ui:define>
+         </ui:composition>
     </h:body>
 </html>
 

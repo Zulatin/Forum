@@ -12,7 +12,7 @@ public class User {
     private String password;
     private String name;
     private boolean admin=false;
-    private boolean sel=false;
+    private boolean isLoginUser=false;
     
      public User() {
         this("",0,"","");
@@ -25,12 +25,12 @@ public class User {
         this.password=password;
     }
 
-    public boolean isSel(){
-        return sel;
+    public boolean isIsLoginUser(){
+        return isLoginUser;
     }
     
-    public void setSel(boolean sel){
-        this.sel=sel;
+    public void setIsLoginUser(boolean sel){
+        this.isLoginUser=sel;
     }
      
     public String getName() {

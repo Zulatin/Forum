@@ -40,7 +40,7 @@
         </ui:define>
             <ui:define name="bottom">
                 <h:form>      
-        <h:commandButton value="logout" action="index"/>
+                    <h:commandButton value="logout" action="#{userBean.logout()}"/>
         <h:commandButton value="back" action ="welcome"/>
         <h:commandButton value="delete" action="delete" rendered="#{userBean.loginUser.admin}"/>
         </h:form>

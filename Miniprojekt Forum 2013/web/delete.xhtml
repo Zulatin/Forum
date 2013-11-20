@@ -20,9 +20,9 @@
             </ui:define>
             <ui:define name="content">
         <h:form>
-            <p:dataTable var="u" value="#{userBean.users}" rowKey="#{u.username}" selection="#{userBean.selected}" selectionMode="single">
-            <p:column>
-                #{u.username}
+            <p:dataTable var="u" value="#{userBean.users}" rowKey="#{u.username}" selection="#{userBean.selected}" selectionMode="single" >
+                <p:column rendered="#{!u.isLoginUser}">
+                #{u.username} 
             </p:column>
         </p:dataTable>
             <h:commandButton value="delete user" action="#{userBean.deleteUser()}"/>
@@ -30,7 +30,7 @@
             </ui:define>
             <ui:define name="bottom">
                 <h:form>
-        <h:commandButton value="logout" action="index"/>
+                    <h:commandButton value="logout" action="#{userBean.logout()}"/>
         <h:commandButton value="back" action="welcome"/>
         
         </h:form>

@@ -2,14 +2,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Error</title>
 </h:head>
 <h:body>
+     <ui:composition template="ForumTemplate.xhtml">
+         <ui:define name="top">
+             <h3>Login error!</h3>
+         </ui:define>
+         <ui:define name="content">
 	<h:form>
-		<h3>Login error!</h3>
 		<h:commandButton value="Back" action="index" />
 	</h:form>
+         </ui:define>
+     </ui:composition>
 </h:body>
 </html>

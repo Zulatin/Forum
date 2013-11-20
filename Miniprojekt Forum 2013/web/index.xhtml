@@ -2,13 +2,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<title>Login</title>
 </h:head>
 <h:body>
-    <h:form>
-	<h3>Please enter your name and password.</h3>
+     <ui:composition template="ForumTemplate.xhtml">
+         <ui:define name="top">
+           <h3>Please enter your name and password.</h3>  
+         </ui:define>
+         <ui:define name="content">
+         <h:form>
         <table>
             <tr>
                 <td>Username:</td>
@@ -19,10 +24,14 @@
                 <td><h:inputSecret value="#{userBean.loginUser.password}" /></td>
             </tr>
         </table>
+        </h:form>
+         </ui:define>
+         <ui:define name="bottom">
+             <h:form>
         <h:commandButton value="Login" action="#{userBean.login()}"/>
         <h:commandButton value="Register" action="#{userBean.register()}" />
-    </h:form>
-    
-    
+        </h:form>
+        </ui:define>
+     </ui:composition>
 </h:body>
 </html>
